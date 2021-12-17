@@ -1,0 +1,23 @@
+.warnasidebar {
+	background: rgb(0, 0, 0);
+}
+.warnatopbar {
+	background: rgb(255,255,255);
+}
+.warnakonten {
+	background: rgb(255, 255, 255);
+}
+.warnabutton {
+	background: rgb(255, 153, 51);
+}
+.warnasearch {
+	background: white;
+}
+.effect:hover {
+	background: rgb(255, 153, 51);
+}
+.warnadasar {
+	color: black;
+	text-shadow: grey;
+	font-size: 20px;
+}

@@ -1,0 +1,58 @@
+{%extends "snippets/base.html"%}
+{%block maincontent%}
+	<div class="container-fluid">
+        <table id="data" class="table table-striped table-bordered" style="width:100%">
+            <a href="{%url 'suratmenyurat:create' %}" class="btn btn-primary active mb-4" role="button" aria-pressed="true">Tambah Data</a>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nomor</th>
+                    <th>Tanda Tangan</th>
+                    <th>Penduduk</th>
+                    <th>Jenis</th>
+                    <th>Jumlah</th>
+                    <th>Status</th>
+                    <th>Mulai</th>
+                    <th>Jenis SKU</th>
+                    <th>Action</th>
+                    
+                </tr>
+            </thead>
+
+            {%for data in sku%}
+            <tbody>
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.nomor}}</td>
+                    <td>{{data.tanda_tangan}}</td>
+                    <td>{{data.penduduk}}</td>
+                    <td>{{data.jenis}}</td>
+                    <td>{{data.jumlah}}</td>
+                    <td>{{data.status}}</td>
+                    <td>{{data.mulai}}</td>
+                    <td>{{data.jenis_sku}}</td>
+                    <td><a href="{% url 'suratmenyurat:print' data.id %}" class="btn btn-info active btn-sm mb-2" role="button" aria-pressed="true"><i class="fas fa-print"></i></a>
+                    <a href="{% url 'suratmenyurat:delete' data.id %}" class="btn btn-danger active btn-sm" role="button" aria-pressed="true"><i class="fas fa-trash"></i></a></td>
+                </tr>
+
+            </tbody>
+            {%endfor%}
+            <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Nomor</th>
+                    <th>Tanda Tangan</th>
+                    <th>Penduduk</th>
+                    <th>Jenis</th>
+                    <th>Jumlah</th>
+                    <th>Status</th>
+                    <th>Mulai</th>
+                    <th>Jenis SKU</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{%endblock maincontent%}
+{%block footer%}
+{%endblock footer%}

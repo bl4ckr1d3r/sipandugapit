@@ -1,0 +1,53 @@
+{%extends "snippets/base.html"%}
+{%block maincontent%}
+	<div class="container-fluid">
+        <table id="data" class="table table-striped table-bordered" style="width:100%">
+            <a href="{%url 'datakartukeluarga:create' %}" class="btn btn-primary active mb-4" role="button" aria-pressed="true">Tambah Data </a>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>No KK</th>
+                    <th>Kepala Keluarga</th>
+                    <th>Kecamatan</th>
+                    <th>Kabupaten</th>
+                    <th>Kode Pos</th>
+                    <th>Provinsi</th>
+                    <th>Anggota</th>
+                    <th>Action</th>
+            </thead>
+
+            {%for data in datakartukeluarga%}
+            <tbody>
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.nokk}}</td>
+                    <td>{{data.kepala_keluarga_id}}</td>
+                    <td>{{data.kecamatan}}</td>
+                    <td>{{data.kabupaten}}</td>
+                    <td>{{data.kodepos}}</td>
+                    <td>{{data.provinsi}}</td>
+                    <td><a href="{% url 'datakartukeluarga:anggotakeluargalist'  %}" class="btn btn-info active btn-sm mb-2" role="button" aria-pressed="true"><i class="fas fa-users"></i></a></td>
+                    <td><a href="{% url 'datakartukeluarga:update' data.id %}" class="btn btn-info active btn-sm mb-2" role="button" aria-pressed="true"><i class="fas fa-user-edit"></i></a>
+                    <a href="{% url 'datakartukeluarga:delete' data.id %}" class="btn btn-danger active btn-sm" role="button" aria-pressed="true"><i class="fas fa-trash"></i></a></td>
+                </tr>
+
+            </tbody>
+            {%endfor%}
+            <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>No KK</th>
+                    <th>Kepala Keluarga</th>
+                    <th>Kecamatan</th>
+                    <th>Kabupaten</th>
+                    <th>Kode Pos</th>
+                    <th>Provinsi</th>
+                    <th>Anggota</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{%endblock maincontent%}
+{%block footer%}
+{%endblock footer%}

@@ -1,0 +1,66 @@
+{%extends "snippets/base.html"%}
+{%block maincontent%}
+	<div class="container-fluid">
+        <table id="data" class="table table-striped table-bordered" style="width:100%">
+            <a href="{%url 'datapenduduk:create' %}" class="btn btn-primary active mb-4" role="button" aria-pressed="true">Tambah Data</a>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>TTL</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>Dusun</th>
+                    <th>Agama</th>
+                    <th>Pekerjaan</th>
+                    <th>Status</th>
+                    <th>Pendidikan Terakhir</th>
+                    <th>Action</th>
+                    
+                </tr>
+            </thead>
+
+            {%for data in datapenduduk%}
+            <tbody>
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.nik}}</td>
+                    <td>{{data.nama}}</td>
+                    <td>{{data.tempat}},{{data.tanggal_lahir}}</td>
+                    <td>{{data.jenis_kelamin}}</td>
+                    <td>{{data.alamat}}</td>
+                    <td>{{data.dusun}}</td>
+                    <td>{{data.agama}}</td>
+                    <td>{{data.pekerjaan}}</td>
+                    <td>{{data.status}}</td>
+                    <td>{{data.pendidikan_terakhir}}</td>
+
+
+                    <td><a href="{% url 'datapenduduk:update' data.id %}" class="btn btn-info active btn-sm mb-2" role="button" aria-pressed="true"><i class="fas fa-user-edit"></i></a>
+                    <a href="{% url 'datapenduduk:delete' data.id %}" class="btn btn-danger active btn-sm" role="button" aria-pressed="true"><i class="fas fa-trash"></i></a></td>
+                </tr>
+
+            </tbody>
+            {%endfor%}
+            <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>TTL</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>Dusun</th>
+                    <th>Agama</th>
+                    <th>Pekerjaan</th>
+                    <th>Status</th>
+                    <th>Pendidikan Terakhir</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{%endblock maincontent%}
+{%block footer%}
+{%endblock footer%}
